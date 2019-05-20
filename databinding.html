@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Expresiones</title>
+</head>
+<body>
+    <div id="app">
+        <input v-model="name">
+        <p> {{ name }} </p> <!--solo cuando esta corriendo por NPM RUN DEC con la Instalación de vue-cli--> 
+
+        <a v-bind:href="url">Link 1</a>
+        <a :href="url">Link 2</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        let app = new Vue ({
+            el: '#app',
+            data: {
+                name: '',
+
+                url: 'https://platzi.com'
+            }
+        })
+  </script>
+</body>
+</html>
