@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Watches</title>
+</head>
+<body>
+    <div id="app">
+        <div id="event">
+            <input v-model="name" placeholder="Nombre">
+            <input v-model="lastName" placeholder="Apellido">
+            <input v-model="birthYear" placeholder="Año de Nacimiento">
+        </div>
+        <p> {{ fullName }} </p>
+        <p> {{ age }} </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        let app = new Vue ({
+            el: '#app',
+            data: {
+                name: '',
+                lastName: '',
+                birthYear: '',
+                
+            },
+
+            computed: {
+                fullName () {
+                    return `Soy ${this.name} ${this.lastName}`
+                },
+
+                age () {
+                    const currentYear = new Date().getFullYear()
+                    const birthYear = new Date(this.birthYear).getFullYear()
+                    return `y tengo ${currentYear - birthYear - 1} años` 
+                }
+            },
+
+            watch: {
+                name (newValue, OldValue) {
+                    console.log(newValue, newValue)
+                }
+            }
+        })
+  </script>
+</body>
+</html>
