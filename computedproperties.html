@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Expresiones</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #00ff;
+        }
+
+        #app {
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+            align-items: center;
+            background: rebeccapurple;
+            margin: 0 auto; 
+            padding: 20px; 
+        }
+
+        input {
+            margin-top: 10px;
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 18px; 
+            font-family: Verdana;
+            background: #0000da;
+            color: #fff;
+        }
+
+        p {
+            margin-top: 10px;
+            text-align: center;
+            font-family: Helvetica;
+            font-size: 30px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="event">
+            <input v-model="name" placeholder="Nombre">
+            <input v-model="lastName" placeholder="Apellido">
+            <input v-model="birthYear" placeholder="Año de Nacimiento">
+        </div>
+        <p> {{ fullName }} </p>
+        <p> {{ age }} </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        let app = new Vue ({
+            el: '#app',
+            data: {
+                name: '',
+                lastName: '',
+                birthYear: '',
+                
+            },
+
+            computed: {
+                fullName () {
+                    return `Soy ${this.name} ${this.lastName}`
+                },
+
+                age () {
+                    const currentYear = new Date().getFullYear()
+                    const birthYear = new Date(this.birthYear).getFullYear()
+                    return `y tengo ${currentYear - birthYear - 1} años` 
+                }
+            }
+        })
+  </script>
+</body>
+</html>
